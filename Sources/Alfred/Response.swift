@@ -17,7 +17,7 @@ public struct Response: Encodable {
         self.items.append(contentsOf: items.map { $0.item })
     }
 
-    public mutating func output() throws -> String {
+    public func output() throws -> String {
         let json = try Self.makeEncoder(shouldSort: shouldSort).encode(self)
         return String(data: json, encoding: .utf8)!
     }
